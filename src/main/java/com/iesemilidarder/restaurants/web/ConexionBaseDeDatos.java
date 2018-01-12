@@ -30,7 +30,7 @@ public class ConexionBaseDeDatos {
 
 //Asi actua el programa cuando el parametro le llega vacio
 
-                rs = stmt.executeQuery("SELECT * FROM (SELECT RE.RES_NOM, RE.RES_ADRECA, RE.RES_WEB, RE.RES_TELEFON, RE.RES_URL_IMG, RR.TRS_DESCRIPCIO FROM " +
+                rs = stmt.executeQuery("SELECT * FROM (SELECT RE.RES_NOM, RE.RES_ADRECA, RE.RES_WEB, RE.RES_TELEFON, RE.RES_URL_IMG, RR.TRS_DESCRIPCIO, RE.RES_CODI FROM " +
                         "RESTAURANTS RE, TRESTAURANTS RR WHERE RE.RES_TRS_CODI = RR.TRS_CODI ORDER BY RES_MITJANA DESC)where ROWNUM <= 5");
 
 
@@ -38,7 +38,7 @@ public class ConexionBaseDeDatos {
 
 //Asi actua el programa cuando el parametro le llega con lo que queremos buscar
 
-                rs = stmt.executeQuery("SELECT * FROM (SELECT RE.RES_NOM, RE.RES_ADRECA, RE.RES_WEB, RE.RES_TELEFON, RE.RES_URL_IMG, RR.TRS_DESCRIPCIO FROM " +
+                rs = stmt.executeQuery("SELECT * FROM (SELECT RE.RES_NOM, RE.RES_ADRECA, RE.RES_WEB, RE.RES_TELEFON, RE.RES_URL_IMG, RR.TRS_DESCRIPCIO, RE.RES_CODI FROM " +
                         "RESTAURANTS RE, TRESTAURANTS RR WHERE RE.RES_TRS_CODI = RR.TRS_CODI AND RE.RES_NOM LIKE '%" + cercar + "%' ORDER BY RES_MITJANA DESC)where ROWNUM <= 5");
 
             }
@@ -55,6 +55,7 @@ public class ConexionBaseDeDatos {
                 rstt.setTelefono(rs.getString("RES_TELEFON"));
                 rstt.setTipo(rs.getString("TRS_DESCRIPCIO"));
                 rstt.setUrl_imagen(rs.getString("RES_URL_IMG"));
+                rstt.setID(rs.getString("RES_CODI"));
 
                 rst.add(rstt);
 
@@ -73,5 +74,30 @@ public class ConexionBaseDeDatos {
 
     }
 
+//Metodo que lee el Servlet
+    public ArrayList readRestaurant2(){
+
+
+        try{
+
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@35.205.41.45:1521:XE", "usuari", "usuari");
+
+            Statement stmt = con.createStatement();
+            ResultSet rs;
+
+            rs = stmt.executeQuery("SELECT RE.RES_NOM, RE.RES_ADRECA, RE.RES_WEB, RE.RES_TELEFON, RE.RES_URL_IMG, RR.TRS_DESCRIPCIO, RE.RES_CODI FROM RESTAURANTS RE, TRESTAURANTS RR WHERE"+" RE.RES_TRS_CODI = RR.TRS_CODI");
+
+        }catch (Exception b){
+
+            System.out.println(b.toString());
+
+        }
+
+        return readRestaurant2();
+    }
+
 }
+
 

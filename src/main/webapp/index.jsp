@@ -82,7 +82,7 @@
                         "<p>" + rstt.getWeb() + "</p>" +
                         "<p>" + rstt.getTelefono() + "</p>" +
                         "<p>" + rstt.getTipo() + "</p>" +
-                        "<p><a class='btn btn-secondary' href='test' role='button'>Més informació &raquo;</a></p>" +
+                        "<p><a class='btn btn-secondary' href='mostrar?id="+rstt.getID()+"' role='button'>Més informació &raquo;</a></p>" +
                         "</div>");
                 out.println("</div>");
             }

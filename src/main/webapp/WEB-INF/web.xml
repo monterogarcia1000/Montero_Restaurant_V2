@@ -13,8 +13,16 @@
     <servlet-name>TestServlet</servlet-name>
     <servlet-class>com.iesemilidarder.restaurants.web.TestServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>mostrarrestaurantServlet</servlet-name>
+    <servlet-class>com.iesemilidarder.restaurants.web.mostrarrestaurantServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>TestServlet</servlet-name>
     <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>mostrarrestaurantServlet</servlet-name>
+    <url-pattern>/mostrar</url-pattern>
   </servlet-mapping>
 </web-app>
