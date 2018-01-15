@@ -75,8 +75,9 @@ public class ConexionBaseDeDatos {
     }
 
 //Metodo que lee el Servlet
-    public ArrayList readRestaurant2(){
+    public Restaurant readRestaurant2(String idInformacio){
 
+        Restaurant rstt = null;
 
         try{
 
@@ -87,7 +88,22 @@ public class ConexionBaseDeDatos {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT RE.RES_NOM, RE.RES_ADRECA, RE.RES_WEB, RE.RES_TELEFON, RE.RES_URL_IMG, RR.TRS_DESCRIPCIO, RE.RES_CODI FROM RESTAURANTS RE, TRESTAURANTS RR WHERE"+" RE.RES_TRS_CODI = RR.TRS_CODI");
+            rs = stmt.executeQuery("SELECT RE.RES_NOM, RE.RES_ADRECA, RE.RES_WEB, RE.RES_TELEFON, RE.RES_URL_IMG, RR.TRS_DESCRIPCIO, RE.RES_CODI FROM RESTAURANTS RE, TRESTAURANTS RR WHERE "+ idInformacio +"=RE.RES_CODI AND RE.RES_TRS_CODI = RR.TRS_CODI");
+
+            if (rs.next()) {
+
+                rstt = new Restaurant();
+
+                rstt.setNombre(rs.getString("RES_NOM"));
+                rstt.setDireccion(rs.getString("RES_ADRECA"));
+                rstt.setWeb(rs.getString("RES_WEB"));
+                rstt.setTelefono(rs.getString("RES_TELEFON"));
+                rstt.setTipo(rs.getString("TRS_DESCRIPCIO"));
+                rstt.setUrl_imagen(rs.getString("RES_URL_IMG"));
+                rstt.setID(rs.getString("RES_CODI"));
+
+
+            }
 
         }catch (Exception b){
 
@@ -95,7 +111,7 @@ public class ConexionBaseDeDatos {
 
         }
 
-        return readRestaurant2();
+        return rstt;
     }
 
 }

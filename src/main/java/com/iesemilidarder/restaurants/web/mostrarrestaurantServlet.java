@@ -18,12 +18,10 @@ public class mostrarrestaurantServlet extends HttpServlet {
 
         String idInformacio = request.getParameter("id");
 
-        response.setContentType("text/html");
+        ConexionBaseDeDatos conexionBaseDeDatos = new ConexionBaseDeDatos();
 
-        PrintWriter out = response.getWriter();
+        request.setAttribute("idInformacio", conexionBaseDeDatos.readRestaurant2(idInformacio));
 
-        out.println(idInformacio);
-
-
+        request.getRequestDispatcher("informacion.jsp").forward( request, response );
     }
 }

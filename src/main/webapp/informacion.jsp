@@ -1,16 +1,23 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: cicles
-  Date: 12/1/2018
-  Time: 20:27
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.iesemilidarder.restaurants.web.ConexionBaseDeDatos" %>
+<%@ page import="com.iesemilidarder.restaurants.web.Restaurant" %>
+<%@page import="java.util.*" %>
+<%@page import="java.lang.String" %>
+<%@ page import="com.iesemilidarder.restaurants.web.TestServlet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+
+    <%
+
+        out.println("hola");
+
+        Restaurant restaurant = (Restaurant)request.getAttribute("idInformacio");
+        out.println(restaurant.getNombre());
+
+    %>
 
 </body>
 </html>
