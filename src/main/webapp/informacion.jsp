@@ -16,6 +16,11 @@
 
         Restaurant restaurant = (Restaurant)request.getAttribute("idInformacio");
         out.println(restaurant.getNombre());
+        out.println("<p>" + "<img class='img-fluid' src='"+ restaurant.getUrl_imagen() +"'>" + "</p>");
+        out.println("<p>" + restaurant.getDireccion() + "</p>");
+        out.println("<p>" + restaurant.getTipo() + "</p>");
+        out.println("<p>" + restaurant.getTelefono() + "</p>");
+        out.println("<p>" + restaurant.getWeb() + "</p>");
 
     %>
 
