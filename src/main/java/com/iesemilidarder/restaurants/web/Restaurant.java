@@ -17,6 +17,8 @@ public class Restaurant {
 
     private String ID;
 
+//Utilizamos una ArrayList para guardar los comentarios
+
     private ArrayList<String> opinions;
 
     public ArrayList<String> getOpinions() {

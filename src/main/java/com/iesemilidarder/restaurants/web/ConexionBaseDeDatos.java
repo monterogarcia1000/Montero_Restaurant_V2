@@ -102,6 +102,8 @@ public class ConexionBaseDeDatos {
                 rstt.setUrl_imagen(rs.getString("RES_URL_IMG"));
                 rstt.setID(rs.getString("RES_CODI"));
 
+//Obtenemos los comentarios de la base de datos
+
                 Statement stmtt = con.createStatement();
                 ResultSet rsst;
 

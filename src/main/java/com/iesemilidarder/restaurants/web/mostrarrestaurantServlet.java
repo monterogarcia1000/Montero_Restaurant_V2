@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+//Hacemos que tanto por Post como por Get nos haga lo mismo
+
 public class mostrarrestaurantServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -15,6 +17,8 @@ public class mostrarrestaurantServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+//Recogemos y enviamos el parametro para la busqueda en la base de datos de la información del restaurante
 
         String idInformacio = request.getParameter("id");
 
