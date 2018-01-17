@@ -13,6 +13,8 @@ public class Restaurant {
 
     private  String telefono;
 
+    private String url_imagen;
+
     private String tipo;
 
     private String ID;
@@ -46,7 +48,6 @@ public class Restaurant {
         this.url_imagen = url_imagen;
     }
 
-    private String url_imagen;
 
     public String getNombre() {
         return nombre;
@@ -92,4 +93,3 @@ public class Restaurant {
         this.opinions = new ArrayList<String>();
     }
 }
-
