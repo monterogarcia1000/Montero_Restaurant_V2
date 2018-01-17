@@ -1,6 +1,8 @@
 package com.iesemilidarder.restaurants.web;
 // Objeto para guardar los restaurantes
 
+import java.util.ArrayList;
+
 public class Restaurant {
 
     private String nombre;
@@ -13,6 +15,18 @@ public class Restaurant {
 
     private String tipo;
 
+    private String ID;
+
+    private ArrayList<String> opinions;
+
+    public ArrayList<String> getOpinions() {
+        return opinions;
+    }
+
+    public void setOpinions(ArrayList<String> opinions) {
+        this.opinions = opinions;
+    }
+
     public String getID() {
         return ID;
     }
@@ -21,7 +35,6 @@ public class Restaurant {
         this.ID = ID;
     }
 
-    public String ID;
 
     public String getUrl_imagen() {
         return url_imagen;
@@ -71,6 +84,10 @@ public class Restaurant {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public Restaurant() {
+        this.opinions = new ArrayList<String>();
     }
 }
 

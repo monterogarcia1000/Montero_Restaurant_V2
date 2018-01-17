@@ -102,8 +102,23 @@ public class ConexionBaseDeDatos {
                 rstt.setUrl_imagen(rs.getString("RES_URL_IMG"));
                 rstt.setID(rs.getString("RES_CODI"));
 
+                Statement stmtt = con.createStatement();
+                ResultSet rsst;
+
+                rsst = stmtt.executeQuery("SELECT OP.OPI_OBSERVACIO FROM RESTAURANTS RS, OPINIONS OP WHERE  RS.RES_CODI = OP.OPI_RES_CODI AND " + idInformacio +"= RS.RES_CODI");
+
+                while (rsst.next()) {
+
+                    rstt.getOpinions().add(rsst.getString("OPI_OBSERVACIO"));
+
+                }
+
+                stmtt.close();
 
             }
+
+            stmt.close();
+            con.close();
 
         }catch (Exception b){
 
