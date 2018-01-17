@@ -107,10 +107,11 @@ public class ConexionBaseDeDatos {
                 Statement stmtt = con.createStatement();
                 ResultSet rsst;
 
-                rsst = stmtt.executeQuery("SELECT OP.OPI_OBSERVACIO FROM RESTAURANTS RS, OPINIONS OP WHERE  RS.RES_CODI = OP.OPI_RES_CODI AND " + idInformacio +"= RS.RES_CODI");
+                rsst = stmtt.executeQuery("SELECT OP.OPI_OBSERVACIO, US.USU_NOM FROM RESTAURANTS RS, OPINIONS OP, USUARIS US WHERE  RS.RES_CODI = OP.OPI_RES_CODI AND " + idInformacio +"= RS.RES_CODI AND OP.OPI_USU_CODI = US.USU_CODI");
 
                 while (rsst.next()) {
 
+                    rstt.getOpinions().add(rsst.getString("USU_NOM"));
                     rstt.getOpinions().add(rsst.getString("OPI_OBSERVACIO"));
 
                 }
