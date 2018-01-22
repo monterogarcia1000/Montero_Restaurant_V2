@@ -75,7 +75,7 @@
             out.println("<p>" + restaurant.getDireccion() + "</p>");
             out.println("<p>" + restaurant.getTipo() + "</p>");
             out.println("<p>" + restaurant.getTelefono() + "</p>");
-            out.println("<p>" + restaurant.getWeb() + "</p>");
+            out.println("<p><a href='"+restaurant.getWeb()+"'>"+restaurant.getWeb()+"</a></p>");
             out.println("<hr>");
 
             for (String op : restaurant.getOpinions()) {

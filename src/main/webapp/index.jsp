@@ -79,7 +79,7 @@
                         "</div>");
                 out.println("<div class='col-md-8'><h2>" + rstt.getNombre() +
                         "</h2>" + "<p>" + rstt.getDireccion() + "</p>" +
-                        "<p>" + rstt.getWeb() + "</p>" +
+                        "<p> <a href='"+rstt.getWeb()+"'>"+rstt.getWeb()+"</a></p>" +
                         "<p>" + rstt.getTelefono() + "</p>" +
                         "<p>" + rstt.getTipo() + "</p>" +
                         //Le pasamos una id a monstrarrrestaurantServlet
