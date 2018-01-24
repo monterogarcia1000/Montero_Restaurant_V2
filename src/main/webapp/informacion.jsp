@@ -48,10 +48,7 @@
 
     <!-- Formulario para la busqueda de restaurantes -->
 
-    <form action="index.jsp" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" name="cercar" type="text" placeholder="Cercar" aria-label="Cercar">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cercar</button>
-    </form>
+
 
 </nav>
 
