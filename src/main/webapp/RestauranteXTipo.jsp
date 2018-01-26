@@ -1,9 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.iesemilidarder.restaurants.web.Restaurant" %>
 <%@ page import="com.iesemilidarder.restaurants.web.ConexionBaseDeDatos" %>
-<%@ page import="com.iesemilidarder.restaurants.web.TestServlet" %>
+<%@ page import="com.iesemilidarder.restaurants.web.Restaurant" %>
 <%@page import="java.util.*" %>
 <%@page import="java.lang.String" %>
+<%@ page import="com.iesemilidarder.restaurants.web.TestServlet" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!doctype html>
 <html lang="ca">
@@ -24,7 +24,7 @@
 
 <!-- Navigation bar -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">Restaurants</a>
+    <a class="navbar-brand" href="index.jsp">Restaurants</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,9 +36,9 @@
                     Tipus de restaurants
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="tipor?tipo=4">Xines</a>
+                    <a class="dropdown-item" href="tipor?tipo=Chines">Chines</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="tipor?tipo=2">Italià</a>
+                    <a class="dropdown-item" href="tipor?tipo=Italia">Italià</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="index.jsp">Japonés</a>
                 </div>
@@ -46,13 +46,9 @@
         </form>
     </div>
 
-
     <!-- Formulario para la busqueda de restaurantes -->
 
-        <form action="index.jsp" class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" name="cercar" type="text" placeholder="Cercar" aria-label="Cercar">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cercar</button>
-        </form>
+
 
 </nav>
 
@@ -69,25 +65,27 @@
     <div class="container">
         <!-- Mostramos por pantalla los contenidos de la base de datos -->
         <%
+
             ConexionBaseDeDatos conexionBaseDeDatos = new ConexionBaseDeDatos();
-            ArrayList rst = conexionBaseDeDatos.readRestaurant(request.getParameter("cercar"));
+            ArrayList rst = conexionBaseDeDatos.TipoRestaurante(request.getParameter("tipores"));
             Iterator itr = rst.iterator();
-            while (itr.hasNext()){
+            while (itr.hasNext()) {
                 Restaurant rstt = (Restaurant) itr.next();
                 out.println("<div class='row'>");
                 out.println("<div class='col-md-4'>" +
-                        "<img class='img-fluid' src='"+ rstt.getUrl_imagen() +"'>" +
+                        "<img class='img-fluid' src='" + rstt.getUrl_imagen() + "'>" +
                         "</div>");
                 out.println("<div class='col-md-8'><h2>" + rstt.getNombre() +
                         "</h2>" + "<p>" + rstt.getDireccion() + "</p>" +
-                        "<p> <a href='"+rstt.getWeb()+"'>"+rstt.getWeb()+"</a></p>" +
+                        "<p> <a href='" + rstt.getWeb() + "'>" + rstt.getWeb() + "</a></p>" +
                         "<p>" + rstt.getTelefono() + "</p>" +
                         "<p>" + rstt.getTipo() + "</p>" +
                         //Le pasamos una id a monstrarrrestaurantServlet
-                        "<p><a class='btn btn-secondary' href='mostrar?id="+rstt.getID()+"' role='button'>Més informació &raquo;</a></p>" +
+                        "<p><a class='btn btn-secondary' href='mostrar?id=" + rstt.getID() + "' role='button'>Més informació &raquo;</a></p>" +
                         "</div>");
                 out.println("</div>");
             }
+
         %>
         <hr>
 
@@ -105,4 +103,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
-</html>
+

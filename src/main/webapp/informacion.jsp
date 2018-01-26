@@ -36,9 +36,9 @@
                     Tipus de restaurants
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="index.jsp">Chines</a>
+                    <a class="dropdown-item" href="tipor?tipo=Chines">Chines</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="index.jsp">Italià</a>
+                    <a class="dropdown-item" href="tipor?tipo=Italià">Italià</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="index.jsp">Japonés</a>
                 </div>
