@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "DropdawnServlet")
-public class DropdawnServlet extends HttpServlet {
+@WebServlet(name = "LoginServlet")
+public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         doGet(request, response);
@@ -17,13 +17,16 @@ public class DropdawnServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String tipores = request.getParameter("tipo");
+
+        String usuari = request.getParameter("Usuari");
+
+        String contrasenya = request.getParameter("Contrasenya");
 
         ConexionBaseDeDatos conexionBaseDeDatos = new ConexionBaseDeDatos();
 
-        request.setAttribute("tipores", conexionBaseDeDatos.TipoRestaurante(tipores));
+        request.setAttribute("Login", conexionBaseDeDatos.Login(usuari , contrasenya));
 
-        request.getRequestDispatcher("RestauranteXTipo.jsp").forward( request, response );
+        request.getRequestDispatcher("index.jsp").forward( request, response );
 
     }
 }

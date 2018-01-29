@@ -132,11 +132,9 @@ public class ConexionBaseDeDatos {
         return rstt;
     }
 
-//E
+    public Restaurant Login(String usuari , String contrasenya){
 
-    public ArrayList TipoRestaurante(String tipores) {
-
-        ArrayList arl = new ArrayList();
+        Restaurant rstt = null;
 
         try {
 
@@ -147,26 +145,13 @@ public class ConexionBaseDeDatos {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM (SELECT RE.RES_NOM, RE.RES_ADRECA, RE.RES_WEB, RE.RES_TELEFON, RE.RES_URL_IMG, RR.TRS_DESCRIPCIO, RE.RES_CODI FROM RESTAURANTS RE, TRESTAURANTS RR WHERE RE.RES_TRS_CODI = RR.TRS_CODI AND RR.TRS_CODI= " + tipores + " ORDER BY RES_MITJANA DESC)where ROWNUM <= 5");
+            rs = stmt.executeQuery("SELECT USU_NOM, USU_PASSWORD FROM USUARIS WHERE USU_NOM ="+ usuari +" AND USU_PASSWORD =" + SHA256.sha256(contrasenya));
 
-            while (rs.next()) {
+            rstt = new Restaurant();
 
-                Restaurant rstt = new Restaurant();
+            rstt.setUsuario(rs.getString("USU_NOM"));
+            rstt.setContrasenya(rs.getString("USU_PASSWORD"));
 
-                rstt.setNombre(rs.getString("RES_NOM"));
-                rstt.setDireccion(rs.getString("RES_ADRECA"));
-                rstt.setWeb(rs.getString("RES_WEB"));
-                rstt.setTelefono(rs.getString("RES_TELEFON"));
-                rstt.setTipo(rs.getString("TRS_DESCRIPCIO"));
-                rstt.setUrl_imagen(rs.getString("RES_URL_IMG"));
-                rstt.setID(rs.getString("RES_CODI"));
-
-                arl.add(rstt);
-
-            }
-
-            stmt.close();
-            con.close();
 
         }catch (Exception c){
 
@@ -174,9 +159,8 @@ public class ConexionBaseDeDatos {
 
         }
 
-        return arl;
+        return rstt;
 
     }
-
 
 }

@@ -46,13 +46,18 @@
         </form>
     </div>
 
-
     <!-- Formulario para la busqueda de restaurantes -->
 
         <form action="index.jsp" class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" name="cercar" type="text" placeholder="Cercar" aria-label="Cercar">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cercar</button>
         </form>
+
+    <!-- Boton de Login -->
+
+    <form action="Login.jsp" class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+    </form>
 
 </nav>
 
@@ -88,7 +93,9 @@
                         "</div>");
                 out.println("</div>");
             }
+
         %>
+
         <hr>
 
     </div> <!-- /container -->

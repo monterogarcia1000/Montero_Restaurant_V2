@@ -18,8 +18,8 @@
     <servlet-class>com.iesemilidarder.restaurants.web.mostrarrestaurantServlet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>DropdawnServlet</servlet-name>
-    <servlet-class> com.iesemilidarder.restaurants.web.DropdawnServlet</servlet-class>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class> com.iesemilidarder.restaurants.web.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>TestServlet</servlet-name>
@@ -30,7 +30,7 @@
     <url-pattern>/mostrar</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>DropdawnServlet</servlet-name>
-    <url-pattern>/tipor</url-pattern>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
 </web-app>
