@@ -18,9 +18,9 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        String usuari = request.getParameter("Usuari");
+        String usuari = request.getParameter("usuari");
 
-        String contrasenya = request.getParameter("Contrasenya");
+        String contrasenya = request.getParameter("contrasenya");
 
         ConexionBaseDeDatos conexionBaseDeDatos = new ConexionBaseDeDatos();
 

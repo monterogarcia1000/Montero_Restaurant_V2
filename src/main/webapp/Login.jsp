@@ -65,8 +65,8 @@
     <div class="container">
 
         <form method="post" action="/login">
-            <input class="form-control mr-sm-2" name="cercar" type="text" placeholder="Usuari" aria-label="Cercar">
-            <input class="form-control mr-sm-2" name="cercar" type="text" placeholder="Contrasenya" aria-label="Cercar">
+            <input class="form-control mr-sm-2" name="usuari" type="text" placeholder="Usuari" aria-label="Cercar">
+            <input class="form-control mr-sm-2" name="contrasenya" type="text" placeholder="Contrasenya" aria-label="Cercar">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
         </form>
 

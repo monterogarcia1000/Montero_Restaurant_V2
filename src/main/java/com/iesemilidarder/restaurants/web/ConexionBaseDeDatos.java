@@ -145,12 +145,14 @@ public class ConexionBaseDeDatos {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT USU_NOM, USU_PASSWORD FROM USUARIS WHERE USU_NOM ="+ usuari +" AND USU_PASSWORD =" + SHA256.sha256(contrasenya));
+            rs = stmt.executeQuery("SELECT USU_NOM, USU_PASSWORD FROM USUARIS WHERE USU_NOM ='"+ usuari +"' AND USU_PASSWORD ='" + SHA256.sha256(contrasenya)+"'");
 
-            rstt = new Restaurant();
+            if (rs.next()) {
+                rstt = new Restaurant();
 
-            rstt.setUsuario(rs.getString("USU_NOM"));
-            rstt.setContrasenya(rs.getString("USU_PASSWORD"));
+                rstt.setUsuario(rs.getString("USU_NOM"));
+                rstt.setContrasenya(rs.getString("USU_PASSWORD"));
+            }
 
 
         }catch (Exception c){
