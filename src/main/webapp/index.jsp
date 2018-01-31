@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.iesemilidarder.restaurants.web.Restaurant" %>
 <%@ page import="com.iesemilidarder.restaurants.web.ConexionBaseDeDatos" %>
+<%@page import="com.iesemilidarder.restaurants.web.Usuari" %>
 <%@ page import="com.iesemilidarder.restaurants.web.TestServlet" %>
 <%@page import="java.util.*" %>
 <%@page import="java.lang.String" %>
@@ -47,17 +48,30 @@
     </div>
 
     <!-- Formulario para la busqueda de restaurantes -->
+        <%
+            Usuari usuari = (Usuari) session.getAttribute("usuari");
+            if (usuari==null) {
+                // No hi ha usuari, mostrar boto de login
 
+                out.println("<form action='Login.jsp' class='form-inline my-2 my-lg-0'>" +
+                            "<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Login</button>" +
+                             "</form>");
+
+            } else {
+                // Hi ha usuari, mostrar boto de logout
+
+                out.println("<form action='/logout' class='form-inline my-2 my-lg-0'>" +
+                            "<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Logout</button>" +
+                            "</form>");
+
+            };
+
+
+        %>
         <form action="index.jsp" class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" name="cercar" type="text" placeholder="Cercar" aria-label="Cercar">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cercar</button>
         </form>
-
-    <!-- Boton de Login -->
-
-    <form action="Login.jsp" class="form-inline my-2 my-lg-0">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-    </form>
 
 </nav>
 

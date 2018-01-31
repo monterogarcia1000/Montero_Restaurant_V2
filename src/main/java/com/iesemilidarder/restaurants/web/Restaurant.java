@@ -19,25 +19,6 @@ public class Restaurant {
 
     private String ID;
 
-    private String usuario;
-
-    private String contrasenya;
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usu_nom) {
-        this.usuario = usuario;
-    }
-
-    public String getContrasenya() {
-        return contrasenya;
-    }
-
-    public void setContrasenya(String usu_password) {
-        this.contrasenya = contrasenya;
-    }
 
 //Utilizamos una ArrayList para guardar los comentarios
 

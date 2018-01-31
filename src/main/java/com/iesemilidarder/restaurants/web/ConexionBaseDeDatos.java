@@ -132,9 +132,9 @@ public class ConexionBaseDeDatos {
         return rstt;
     }
 
-    public Restaurant Login(String usuari , String contrasenya){
+    public static Usuari Login(String usuari , String contrasenya) throws Exception{
 
-        Restaurant rstt = null;
+        Usuari rstt = null;
 
         try {
 
@@ -145,19 +145,24 @@ public class ConexionBaseDeDatos {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT USU_NOM, USU_PASSWORD FROM USUARIS WHERE USU_NOM ='"+ usuari +"' AND USU_PASSWORD ='" + SHA256.sha256(contrasenya)+"'");
+            rs = stmt.executeQuery("SELECT USU_CODI, USU_PASSWORD, USU_ADRECA_ELECTRONICA FROM USUARIS WHERE USU_CODI ='"+ usuari +"' AND USU_PASSWORD ='" + SHA256.sha256(contrasenya)+"'");
 
             if (rs.next()) {
-                rstt = new Restaurant();
+                rstt = new Usuari(rs.getString("USU_CODI"), rs.getString("USU_PASSWORD") , rs.getString("USU_ADRECA_ELECTRONICA"));
 
-                rstt.setUsuario(rs.getString("USU_NOM"));
+                rstt.setUsuario(rs.getString("USU_CODI"));
                 rstt.setContrasenya(rs.getString("USU_PASSWORD"));
+                rstt.setMail(rs.getString("USU_ADRECA_ELECTRONICA"));
+            }else {
+
+                throw new Exception("Usuari o contrasenya incorrecta");
+
             }
 
 
         }catch (Exception c){
 
-            System.out.println(c.toString());
+            throw c;
 
         }
 

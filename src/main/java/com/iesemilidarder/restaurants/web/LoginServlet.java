@@ -11,22 +11,27 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        doGet(request, response);
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         String usuari = request.getParameter("usuari");
 
         String contrasenya = request.getParameter("contrasenya");
 
-        ConexionBaseDeDatos conexionBaseDeDatos = new ConexionBaseDeDatos();
 
-        request.setAttribute("Login", conexionBaseDeDatos.Login(usuari , contrasenya));
+        try {
 
-        request.getRequestDispatcher("index.jsp").forward( request, response );
+            Usuari usuarii = ConexionBaseDeDatos.Login(usuari , contrasenya);
+
+            request.getSession().setAttribute("usuari", usuarii);
+
+            request.getRequestDispatcher("index.jsp").forward( request, response );
+
+        }catch (Exception e){
+
+            request.setAttribute("error", e.getMessage());
+
+            request.getRequestDispatcher("Login.jsp").forward( request, response );
+        }
+
 
     }
+
 }
