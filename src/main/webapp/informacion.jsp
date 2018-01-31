@@ -1,8 +1,7 @@
-<%@ page import="com.iesemilidarder.restaurants.web.ConexionBaseDeDatos" %>
 <%@ page import="com.iesemilidarder.restaurants.web.Restaurant" %>
+<%@ page import="com.iesemilidarder.restaurants.web.Usuari" %>
 <%@page import="java.util.*" %>
 <%@page import="java.lang.String" %>
-<%@ page import="com.iesemilidarder.restaurants.web.TestServlet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!doctype html>
@@ -46,9 +45,27 @@
         </form>
     </div>
 
-    <!-- Formulario para la busqueda de restaurantes -->
+    <!-- Boton de login y logout -->
+    <%
+        Usuari usuari = (Usuari) session.getAttribute("usuari");
+        if (usuari==null) {
+            // No hi ha usuari, mostrar boto de login
+
+            out.println("<form action='Login.jsp' class='form-inline my-2 my-lg-0'>" +
+                    "<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Login</button>" +
+                    "</form>");
+
+        } else {
+            // Hi ha usuari, mostrar boto de logout
+
+            out.println("<form action='/logout' class='form-inline my-2 my-lg-0'>" +
+                    "<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Logout</button>" +
+                    "</form>");
+
+        };
 
 
+    %>
 
 </nav>
 
