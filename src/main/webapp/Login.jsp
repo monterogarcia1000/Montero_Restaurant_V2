@@ -24,23 +24,6 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <form>
-            <div class="dropdown">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-                    Tipus de restaurants
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="tipor?tipo=4">Xines</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="tipor?tipo=2">Italià</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="index.jsp">Japonés</a>
-                </div>
-            </div>
-        </form>
-    </div>
-
 </nav>
 
 <main role="main">

@@ -54,7 +54,7 @@
                 // No hi ha usuari, mostrar boto de login
 
                 out.println("<form action='Login.jsp' class='form-inline my-2 my-lg-0'>" +
-                            "<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Login</button>" +
+                                "<button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Login</button>" +
                              "</form>");
 
             } else {
