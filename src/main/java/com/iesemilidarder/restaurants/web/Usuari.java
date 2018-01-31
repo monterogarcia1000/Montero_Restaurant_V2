@@ -15,8 +15,7 @@ public class Usuari {
     public void setMail(String mail) {
         this.mail = mail;
     }
-
-
+    
     public String getUsuario() {
         return usuario;
     }
