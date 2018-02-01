@@ -23,6 +23,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 8.5.23" level="application_server_libraries" />
+    <orderEntry type="library" name="ojdbc6" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="module-library">
       <library name="Maven: com.oracle.jdbc:ojdbc8:12.2.0.1">
@@ -33,6 +34,5 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="ojdbc6" level="project" />
   </component>
 </module>
