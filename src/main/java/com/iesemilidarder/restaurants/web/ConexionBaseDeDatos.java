@@ -132,6 +132,8 @@ public class ConexionBaseDeDatos {
         return rstt;
     }
 
+//Verificacion de los datos de Loguin de un usuario
+
     public static Usuari Login(String usuari , String contrasenya) throws Exception{
 
         Usuari rstt = null;

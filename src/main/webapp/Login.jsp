@@ -35,7 +35,7 @@
             <p>Aquesta es una pagina on podras trobar els millors restaurants de les Illes Balears</p>
         </div>
     </div>
-
+<!-- Error de Loguin de un Usuario -->
     <div class="container">
         <%
             String error = (String) request.getAttribute("error");
