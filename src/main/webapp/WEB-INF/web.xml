@@ -25,7 +25,11 @@
     <servlet-name>LogOutServlet</servlet-name>
     <servlet-class> com.iesemilidarder.restaurants.web.LogOutServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
+    <servlet>
+        <servlet-name>InsercionServlet</servlet-name>
+        <servlet-class>com.iesemilidarder.restaurants.web.InsercionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
     <servlet-name>TestServlet</servlet-name>
     <url-pattern>/test</url-pattern>
   </servlet-mapping>
@@ -40,5 +44,9 @@
   <servlet-mapping>
     <servlet-name>LogOutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InsercionServlet</servlet-name>
+    <url-pattern>/insercion</url-pattern>
   </servlet-mapping>
 </web-app>

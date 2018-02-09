@@ -75,7 +75,7 @@ public class ConexionBaseDeDatos {
     }
 
 //Metodo que lee el Servlet
-    
+
     public Restaurant readRestaurant2(String idInformacio){
 
         Restaurant rstt = null;
@@ -170,6 +170,29 @@ public class ConexionBaseDeDatos {
         }
 
         return rstt;
+
+    }
+
+    public String insercion(String insercion, String id, String usuariinser){
+
+        try {
+
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@35.205.41.45:1521:XE", "usuari", "usuari");
+
+            Statement stmt = con.createStatement();
+
+            stmt.executeUpdate("INSERT INTO OPINONS (OPI_CODI, OPI_OBSERVACIO, OPI_PUNTUACIO, OPI_OPINIO_REVISADA, OPI_RES_CODI, OPI_USU_CODI) VALUES (100,"+insercion+",8,N,"+id+","+usuariinser+")");
+
+        }catch (Exception h){
+
+            System.out.println(h.toString());
+
+
+        }
+
+        return insercion(insercion, id, usuariinser);
 
     }
 

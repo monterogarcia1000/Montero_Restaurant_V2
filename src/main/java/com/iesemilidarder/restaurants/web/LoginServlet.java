@@ -33,6 +33,7 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("Login.jsp").forward( request, response );
         }
 
+        /*Usuari us = usuari request.getSession().getatribute()*/
 
     }
 
