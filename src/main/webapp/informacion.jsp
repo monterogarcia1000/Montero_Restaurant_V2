@@ -101,9 +101,10 @@
 
             if (usuari != null){
 
-                out.println("<form action='/insercion' id='"+restaurant.getID()+"'>");
+                out.println("<form action='/insercion'>");
                 out.println("<div class='form-group'>");
                 out.println("<textarea class='form-control' name='insercion' rows='4'></textarea>");
+                out.println("<input type='hidden' name='id' value='"+restaurant.getID()+"'>");
                 out.println("</div>");
                 out.println("<button type='submit' class='btn btn-primary'>Comentar</button>");
                 out.println("</form>");

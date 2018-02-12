@@ -16,7 +16,7 @@ public class InsercionServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Usuari usuari = (Usuari) request.getSession();
+        Usuari usuari = (Usuari) request.getSession().getAttribute("usuari");
 
         if (usuari != null){
 
@@ -28,9 +28,12 @@ public class InsercionServlet extends HttpServlet {
 
             ConexionBaseDeDatos conexionBaseDeDatos = new ConexionBaseDeDatos();
 
-            request.setAttribute("insercionopi", conexionBaseDeDatos.insercion(insercion, id, usuariinser));
+            request.setAttribute("insercionopi", conexionBaseDeDatos.inserciondatos(insercion, id, usuariinser));
 
+            request.getRequestDispatcher("mostrar?id="+id).forward( request, response );
 
+        } else  {
+            request.getRequestDispatcher("index.jsp").forward( request, response );
         }
 
     }

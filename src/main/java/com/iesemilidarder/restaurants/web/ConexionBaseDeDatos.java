@@ -173,7 +173,9 @@ public class ConexionBaseDeDatos {
 
     }
 
-    public String insercion(String insercion, String id, String usuariinser){
+    public int inserciondatos(String insercion, String id, String usuariinser){
+
+        int n = 0;
 
         try {
 
@@ -183,7 +185,7 @@ public class ConexionBaseDeDatos {
 
             Statement stmt = con.createStatement();
 
-            stmt.executeUpdate("INSERT INTO OPINONS (OPI_CODI, OPI_OBSERVACIO, OPI_PUNTUACIO, OPI_OPINIO_REVISADA, OPI_RES_CODI, OPI_USU_CODI) VALUES (100,"+insercion+",8,N,"+id+","+usuariinser+")");
+            n = stmt.executeUpdate("INSERT INTO OPINIONS (OPI_CODI, OPI_OBSERVACIO, OPI_PUNTUACIO, OPI_OPINIO_REVISADA, OPI_RES_CODI, OPI_USU_CODI) VALUES (40,'"+insercion+"',8,'N','"+id+"','"+usuariinser+"')");
 
         }catch (Exception h){
 
@@ -192,7 +194,7 @@ public class ConexionBaseDeDatos {
 
         }
 
-        return insercion(insercion, id, usuariinser);
+        return n;
 
     }
 
